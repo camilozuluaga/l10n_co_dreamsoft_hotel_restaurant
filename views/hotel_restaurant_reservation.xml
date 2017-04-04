@@ -15,7 +15,6 @@
         <xpath expr="//field[@name='room_no']" position="after">
           <field name="folio_id" attrs="{'invisible':[('is_folio','=',False)], 'required':[('is_folio','=',True)]}"/>
         </xpath>
-
         <!-- End moving the fields room_no and folio_id -->
 
       </field>
