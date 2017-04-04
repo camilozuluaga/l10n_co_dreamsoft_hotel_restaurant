@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<openerp>
+  <data>
+
+    <record model="ir.ui.view" id="view_hotel_reservation_order">
+      <field name="model">hotel.reservation.order</field>
+      <field name="inherit_id" ref="hotel_restaurant.view_hotel_reservation_order_form"/>
+      <field name="arch" type="xml">
+        
+        <field name='reservationno' position="attributes">
+          <attribute name='attrs'>{'readonly': [('state', '=', 'done')]}</attribute>
+        </field>
+
+        <field name='date1' position="attributes">
+          <attribute name='attrs'>{'readonly': [('state', '=', 'done')]}</attribute>
+        </field>
+
+        <field name='waitername' position="attributes">
+          <attribute name='attrs'>{'readonly': [('state', '=', 'done')]}</attribute>
+        </field>
+
+        <field name='table_no' position="attributes">
+          <attribute name='attrs'>{'readonly': [('state', '=', 'done')]}</attribute>
+        </field>
+
+        <field name='order_list' position="attributes">
+          <attribute name='attrs'>{'readonly': [('state', '=', 'done')]}</attribute>
+        </field>
+
+      </field>
+    </record>
+
+  </data>
+</openerp>

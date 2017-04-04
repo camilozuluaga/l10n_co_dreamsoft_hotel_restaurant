@@ -12,7 +12,7 @@
     'images': [],
     'depends': ['hotel_restaurant'],
     'data': [
-
+        'views/hotel_reservation_order_inherit_view.xml',
     ],
     'qweb': [],
     'installable': True,
