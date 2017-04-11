@@ -2,6 +2,7 @@
 <openerp>
   <data>
 
+
     <!-- Inherit view hotel restaurant reservation form-->
     <record model="ir.ui.view" id="view_hotel_restaurant_reservation">
       <field name="model">hotel.restaurant.reservation</field>
@@ -23,6 +24,12 @@
         </xpath>
         <!-- End loading rooms only Table reservation -->
              
+        <xpath expr="//field[@name='end_date']" position="before">
+          <field name="tiempo_mesa" />
+        </xpath>
+
+
+
       </field>
     </record>
 

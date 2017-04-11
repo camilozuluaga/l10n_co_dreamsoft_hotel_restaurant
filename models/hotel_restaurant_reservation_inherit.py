@@ -31,9 +31,34 @@ from decimal import Decimal
 import logging
 _logger = logging.getLogger(__name__)
 
-class hotel_reservation_order_inherit(models.Model):
+class hotel_restaurant_reservation_inherit(models.Model):
 
-	_name = 'hotel.reservation.order'
+	_name = 'hotel.restaurant.reservation'
+	_inherit = 'hotel.restaurant.reservation'
 
-	_inherit = 'hotel.reservation.order'
+	tiempo_mesa = fields.Integer('Duracion (min)', default=30)
+
+	@api.onchange('tiempo_mesa')
+	def tiempo_mesa_change(self):
+		if self.start_date:
+			
+			duracion_mesa= datetime.datetime.strptime(self.start_date, DEFAULT_SERVER_DATETIME_FORMAT)
+			duracion=self.tiempo_mesa
+			self.end_date=duracion_mesa+datetime.timedelta(minutes=duracion)
+   		
+
+	@api.onchange('start_date')
+	def tiempo_mesa_change(self):
+		if self.tiempo_mesa:
+			
+			duracion_mesa= datetime.datetime.strptime(self.start_date, DEFAULT_SERVER_DATETIME_FORMAT)
+			duracion=self.tiempo_mesa
+			self.end_date=duracion_mesa+datetime.timedelta(minutes=duracion)
+   		
+
+	
+	   
+		
+
+hotel_restaurant_reservation_inherit()
 
