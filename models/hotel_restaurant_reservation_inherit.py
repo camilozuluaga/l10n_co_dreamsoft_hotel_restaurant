@@ -48,7 +48,7 @@ class hotel_restaurant_reservation_inherit(models.Model):
    		
 
 	@api.onchange('start_date')
-	def tiempo_mesa_change(self):
+	def start_date_change(self):
 		if self.tiempo_mesa:
 			
 			duracion_mesa= datetime.datetime.strptime(self.start_date, DEFAULT_SERVER_DATETIME_FORMAT)
