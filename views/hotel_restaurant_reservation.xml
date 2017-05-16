@@ -1,61 +1,94 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <openerp>
-  <data>
+	<data>
 
 
-    <!-- Inherit view hotel restaurant reservation form-->
-    <record model="ir.ui.view" id="view_hotel_restaurant_reservation">
-      <field name="model">hotel.restaurant.reservation</field>
-      <field name="inherit_id" ref="hotel_restaurant.view_hotel_restaurant_reservation_form"/>
-      <field name="arch" type="xml">
+		<!-- Inherit view hotel restaurant reservation form-->
+		<record model="ir.ui.view" id="view_hotel_restaurant_reservation">
+			<field name="model">hotel.restaurant.reservation</field>
+			<field name="inherit_id" ref="hotel_restaurant.view_hotel_restaurant_reservation_form"/>
+			<field name="arch" type="xml">
 
-        <!-- Moving the fields room_no and folio_id -->
-        <xpath expr="//field[@name='folio_id']" position="replace">
-        </xpath>
+				<!-- Moving the fields room_no and folio_id -->
+				<xpath expr="//field[@name='folio_id']" position="replace">
+				</xpath>
 
-        <xpath expr="//field[@name='room_no']" position="after">
-          <field name="folio_id" attrs="{'invisible':[('is_folio','=',False)], 'required':[('is_folio','=',True)]}"/>
-        </xpath>
-        <!-- End moving the fields room_no and folio_id -->
+				<xpath expr="//field[@name='room_no']" position="after">
+					<field name="folio_id" attrs="{'invisible':[('is_folio','=',False)], 'required':[('is_folio','=',True)]}"/>
+				</xpath>
+				<!-- End moving the fields room_no and folio_id -->
 
-        <!-- Loading rooms only Table reservation -->
-        <xpath expr="//field[@name='room_no']" position="attributes">
-          <attribute name="domain">[('isroom', '=', True)]</attribute>
-        </xpath>
-        <!-- End loading rooms only Table reservation -->
-             
-        <xpath expr="//field[@name='end_date']" position="before">
-          <field name="tiempo_mesa" />
-        </xpath>
+				<!-- Loading rooms only Table reservation -->
+				<xpath expr="//field[@name='room_no']" position="attributes">
+					<attribute name="domain">[('isroom', '=', True)]</attribute>
+					<attribute name="String">Cuarto No</attribute>
+				</xpath>
+				<!-- End loading rooms only Table reservation -->
+						 
+				<xpath expr="//field[@name='end_date']" position="before">
+					<field name="tiempo_mesa" />
+				</xpath>
+
+				<xpath expr="//field[@name='end_date']" position="attributes">
+						<attribute name="String">Hora de finalización</attribute>
+						
+				</xpath>
+
+				<xpath expr="//field[@name='start_date']" position="attributes">
+						<attribute name="String">Hora de inicio</attribute>
+						
+				</xpath>
+
+				<xpath expr="//field[@name='is_folio']" position="attributes">
+						<attribute name="String">¿Es huésped?</attribute>
+						
+				</xpath>
+
+				<xpath expr="//field[@name='partner_address_id']" position="attributes">
+						<attribute name="String">Direccion</attribute>
+						
+				</xpath>
+
+				<xpath expr="//field[@name='is_folio']" position="attributes">
+						<attribute name="String">¿Es huésped?</attribute>
+				</xpath>
+
+				
+				<xpath expr="//field[@name='cname']" position="attributes">
+						<attribute name="String">Cliente</attribute>
+						
+				</xpath>
 
 
 
-      </field>
-    </record>
 
-    <!-- Inherit view hotel restaurant order form-->
-    <record model="ir.ui.view" id="view_hotel_restaurant_order">
-      <field name="model">hotel.restaurant.order</field>
-      <field name="inherit_id" ref="hotel_restaurant.view_hotel_restaurant_order_form"/>
-      <field name="arch" type="xml">
-      
-        <!-- Moving the fields room_no and folio_id -->
-        <xpath expr="//field[@name='folio_id']" position="replace">
-        </xpath>
+			</field>
+		</record>
 
-        <xpath expr="//field[@name='room_no']" position="after">
-          <field name="folio_id" attrs="{'invisible':[('is_folio','=',False)], 'required':[('is_folio','=',True)]}"/>
-        </xpath>
-        <!-- End moving the fields room_no and folio_id -->
+		<!-- Inherit view hotel restaurant order form-->
+		<record model="ir.ui.view" id="view_hotel_restaurant_order">
+			<field name="model">hotel.restaurant.order</field>
+			<field name="inherit_id" ref="hotel_restaurant.view_hotel_restaurant_order_form"/>
+			<field name="arch" type="xml">
+			
+				<!-- Moving the fields room_no and folio_id -->
+				<xpath expr="//field[@name='folio_id']" position="replace">
+				</xpath>
 
-        <!-- Loading rooms only Table reservation -->
-        <xpath expr="//field[@name='room_no']" position="attributes">
-          <attribute name="domain">[('isroom', '=', True)]</attribute>
-        </xpath>
-        <!-- End loading rooms only Order table -->
+				<xpath expr="//field[@name='room_no']" position="after">
+					<field name="folio_id" attrs="{'invisible':[('is_folio','=',False)], 'required':[('is_folio','=',True)]}"/>
+				</xpath>
+				<!-- End moving the fields room_no and folio_id -->
 
-      </field>
-    </record>
+				<!-- Loading rooms only Table reservation -->
+				<xpath expr="//field[@name='room_no']" position="attributes">
+					<attribute name="domain">[('isroom', '=', True)]</attribute>
+					<attribute name="String">Cuarto No</attribute>
+				</xpath>
+				<!-- End loading rooms only Order table -->
 
-  </data>
+			</field>
+		</record>
+
+	</data>
 </openerp>
