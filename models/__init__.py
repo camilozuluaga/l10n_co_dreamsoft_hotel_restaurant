@@ -1,2 +1,3 @@
 import hotel_reservation_order_inherit
 import hotel_restaurant_reservation_inherit
+import hotel_restaurant_order_inherit

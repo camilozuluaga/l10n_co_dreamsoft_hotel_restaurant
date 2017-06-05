@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<openerp>
+	<data>
+		<!-- Inherit view hotel restaurant order form-->
+		<record model="ir.ui.view" id="view_hotel_restaurant_order">
+			<field name="model">hotel.restaurant.order</field>
+			<field name="inherit_id" ref="hotel_restaurant.view_hotel_restaurant_order_form"/>
+			<field name="arch" type="xml">
+			
+				<!-- Moving the fields room_no and folio_id -->
+				<xpath expr="//field[@name='folio_id']" position="replace">
+				</xpath>
+
+				<xpath expr="//field[@name='room_no']" position="before">
+					<field name="folio_id" attrs="{'invisible':[('is_folio','=',False)], 'required':[('is_folio','=',True)]}"/>
+				</xpath>
+				<!-- End moving the fields room_no and folio_id -->
+
+				<!-- Loading rooms only Table reservation -->
+				<xpath expr="//field[@name='room_no']" position="attributes">
+					<attribute name="domain">[('isroom', '=', True)]</attribute>
+					<attribute name="String">Habitación No</attribute>
+				</xpath>
+				<!-- End loading rooms only Order table -->
+
+			</field>
+		</record>
+
+	</data>
+</openerp>

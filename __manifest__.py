@@ -14,6 +14,8 @@
     'data': [
         'views/hotel_reservation_order_inherit_view.xml',
         'views/hotel_restaurant_reservation.xml',
+        'views/hotel_restaurant_order_inherit_view.xml',
+
     ],
     'qweb': [],
     'installable': True,
