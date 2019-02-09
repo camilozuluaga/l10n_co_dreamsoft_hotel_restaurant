@@ -31,7 +31,7 @@ from decimal import Decimal
 import logging
 _logger = logging.getLogger(__name__)
 
-class hotel_restaurant_reservation_inherit(models.Model):
+class HotelRestaurantReservationInherit(models.Model):
 
 	_name = 'hotel.restaurant.reservation'
 	_inherit = 'hotel.restaurant.reservation'
@@ -60,5 +60,5 @@ class hotel_restaurant_reservation_inherit(models.Model):
 	   
 		
 
-hotel_restaurant_reservation_inherit()
+HotelRestaurantReservationInherit()
 
