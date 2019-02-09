@@ -42,7 +42,7 @@ class hotel_restaurant_reservation_inherit(models.Model):
 	def tiempo_mesa_change(self):
 		if self.start_date:
 			
-			duracion_mesa= datetime.datetime.strptime(self.start_date, DEFAULT_SERVER_DATETIME_FORMAT)
+		duracion_mesa= datetime.datetime.strptime(self.start_date, DEFAULT_SERVER_DATETIME_FORMAT)
 			duracion=self.tiempo_mesa
 			self.end_date=duracion_mesa+datetime.timedelta(minutes=duracion)
    		
