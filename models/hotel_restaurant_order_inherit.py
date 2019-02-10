@@ -10,10 +10,11 @@ from decimal import Decimal
 import logging
 _logger = logging.getLogger(__name__)
 
-class hotel_restaurant_order_inherit(models.Model):
+class HotelRestaurantOrderInherit(models.Model):
 
 	_name = 'hotel.restaurant.order'
 
 	_inherit = 'hotel.restaurant.order'
 
 	
+HotelRestaurantOrderInherit()
